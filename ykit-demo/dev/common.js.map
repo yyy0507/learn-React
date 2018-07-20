@@ -1,0 +1,1 @@
+{"version":3,"file":"common.js","sources":["webpack:///./scripts/common.js"],"sourcesContent":["console.log('this is a common biz module111');\n\n\n//////////////////\n// WEBPACK FOOTER\n// ./scripts/common.js\n// module id = 27\n// module chunks = 5"],"mappings":";;;;;AAAA;;;;","sourceRoot":""}

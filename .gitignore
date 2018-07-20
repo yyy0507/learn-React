@@ -3,6 +3,7 @@
 # dependencies
 /my-app/node_modules
 /my-note/node_modules
+/ykit-demo/node_modules
 
 
 

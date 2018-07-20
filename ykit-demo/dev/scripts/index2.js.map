@@ -1,0 +1,1 @@
+{"version":3,"file":"scripts/index2.js","sources":["webpack:///./scripts/index2.js"],"sourcesContent":["require('react');\nrequire('react-dom');\nrequire('./common');\n\nconsole.log('this is index2');\n\n\n//////////////////\n// WEBPACK FOOTER\n// ./scripts/index2.js\n// module id = 29\n// module chunks = 3"],"mappings":";;;;;;;;;;;;;AAAA;AACA;AACA;AACA;AACA;;;;","sourceRoot":""}
