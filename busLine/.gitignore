@@ -1,19 +1,13 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-/my-app/node_modules
-/my-note/node_modules
-/ykit-demo/node_modules
-/busLine/node_modules
-/demo-cookie/node_modules
-/mock-server/node_modules
-/react-demo/node_modules
-/web-server/node_modules
+/node_modules
 
+# testing
+/coverage
 
-
-/my-app/README.md
-/my-note/README.md
+# production
+/build
 
 # misc
 .DS_Store

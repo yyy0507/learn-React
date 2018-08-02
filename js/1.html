@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bind</title>
+</head>
+<body>
+	<div>
+	<!-- ```JavaScript
+	function testBind (a, b, c){
+	return [this, a, b, c];
+	}
+	const a = {};
+	const b = {};
+	const binded = testBind.bind(a, 'a');
+	const res = binded('b');
+	const res2 = binded.call(b, 'b');
+	const expect = [a, 'a', 'b', undefined];
+
+	console.log(expect.every((item, index) => item === res[index]));
+	console.log(expect.every((item, index) => item === res2[index]))
+	``` -->
+	</div>
+</body>
+<script>
+
+// var args = Array.prototype.slice.call(arguments, 1);
+
+//     return function () {
+//         // 这个时候的arguments是指bind返回的函数传入的参数
+//         var bindArgs = Array.prototype.slice.call(arguments);
+//         self.apply(context, args.concat(bindArgs));
+//     }
+	
+
+Function.prototype.bind = function(){
+	var self = this, // 保存原函数
+	context = Array.prototype.shift.call(arguments), // 需要绑定的this上下文
+	args = Array.prototype.slice.call(arguments); // 剩余的参数转成数组
+	console.log(context);
+	console.log(args);
+	return function() { // 返回一个新函数
+	// 执行新函数时，将传入的上下文context作为新函数的this
+	// 并且组合两次分别传入的参数，作为新函数的参数
+		// var arg = Array.prototype.slice.call(arguments);
+		// var arg = Array.prototype.concat(args);
+		// return self.apply(context, args.concat(arg));
+		return self.apply(context, [].concat.call(args, [].slice.call(arguments))); 
+  	}
+};
+
+
+function testBind (a, b, c){
+    return [this, a, b, c];
+}
+const a = {};
+const b = {};
+const binded = testBind.bind(a, 'a');
+const res = binded('b');
+const res2 = binded.call(b, 'b');
+const expect = [a, 'a', 'b', undefined];
+
+console.log(expect.every((item, index) => item === res[index]));
+console.log(expect.every((item, index) => item === res2[index]))
+</script>
+</html>
+
+
+
+
+

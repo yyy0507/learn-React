@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inherit</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+var A = function() {
+    this.name = 'apple';
+}
+
+A.prototype.getName = function() {
+    return this.name;
+}
+
+
+//新增加
+A.prototype.initialize = function() {
+   
+}
+
+function inhert(A, extend) {
+	var a = function() {};
+	a.prototype = new A();
+	for(var proto in extend) {
+		a.prototype[proto] = extend[proto];
+	}
+	a.prototype.superclass = A.prototype;
+	a.prototype.initialize();
+	return a;
+}
+
+var B = inhert(A, {
+    initialize: function() {
+        this.superclass.initialize.call(this);
+        this.total = 3;
+    },
+
+    say: function() {
+        return '我有' + this.total + '个' + this.getName()
+    }
+});
+
+var b = new B();
+console.log(b.say()); //我有3个apple
+
+
+
+
+// var A = function () {
+//     this.name = 'apple';
+// }
+// A.prototype.getName = function () {
+//     return this.name;
+// }
+
+// //新增加
+// A.prototype.initialize = function (){
+// }
+
+// A.extend = function(extend){
+//     var a = function(){};
+//     a.prototype = new A();
+//     for( var proto in extend ){
+//         a.prototype[proto] = extend[proto];
+//     }
+//     a.prototype.superclass = A.prototype;
+//     a.prototype.initialize();
+//     return a;
+// };
+
+
+// //补充代码
+// var B = A.extend({
+//     initialize: function () {
+//         this.superclass.initialize.call(this);
+//         this.total = 3;
+//     },
+//     say: function () {
+//         return '我有' + this.total + '个' + this.getName()
+//     }
+// });
+
+// var b = new B();
+// console.log(b);
+// console.log(b.say());//我有3个apple;
+</script>
+</html>
+
+
+
+<!-- var A = function() {
+
+    this.name = 'apple';
+
+}
+
+A.prototype.getName = function() {
+
+    return this.name;
+
+}
+
+var B = inhert(A, {
+
+    initialize: function() {
+
+        this.superclass.initialize.call(this);
+
+        this.total = 3;
+
+    },
+
+    say: function() {
+
+        return '我有' + this.total + '个' + this.getName()
+
+    }
+
+});
+
+var b = new B();
+
+console.log(b.say()); //我有3个apple -->
